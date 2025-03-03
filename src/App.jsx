@@ -18,7 +18,12 @@ function deriveGameBoard() {
   //     { square: { row: 1, col: 1 }, player: "O" },
   //     { square: { row: 0, col: 2 }, player: "X" }
   // ];
+
+  for (const turn of gameTurns) {
+  }
 }
+
+function handlePlayerNameChange() {}
 
 function App() {
   const [players, setPlayers] = useState(PLAYERS);
@@ -27,7 +32,12 @@ function App() {
     <main>
       <div id="game-container">
         <ol id="players" className="highlight-player">
-          <Player name={players.X} symbol="X" isActive={true} />
+          <Player
+            name={players.X}
+            symbol="X"
+            isActive={true}
+            onChangeName={handlePlayerNameChange}
+          />
           <Player name={players.O} symbol="O" isActive={false} />
         </ol>
         <GameBoard />
