@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-export default function Player({ name, symbol, isActive }) {
+export default function Player({ name, symbol, isActive, onChangeName }) {
   // let isEdit = false;
   const [isEdit, setIsEdit] = useState(false);
   const [playerName, setPlayerName] = useState(name);
@@ -35,6 +35,7 @@ export default function Player({ name, symbol, isActive }) {
     console.log("isEdit in handleToggleEdit", isEdit);
     if (isEdit) {
       setPlayerName((prevName) => prevName.trim() || name); // Prevent empty name
+      onChangeName(symbol, playerName);
     } else {
       setTimeout(() => inputRef.current?.focus(), 0); // Auto-focus input
     }
